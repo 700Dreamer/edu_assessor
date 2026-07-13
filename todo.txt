@@ -1,0 +1,48 @@
+Feed back
+
+I’m developing a system that marks students exams it’s going to follow a simple setup. Data entry — neural engine — and out put,
+Now we are team, some people are working on the app Ana the other on the Ai, now me in the middle to handle, the backend, auth, database and and interface how the people will get the results, now the data entry part(app) wants a zipped file the username and password, that’s what the app is bringing, now the zipped will have PDF of the scanned papers, I will store the the school name, class on the school account and the exam name, those will be provided by the app, the Ai will return all the students that have sat the paper, and I will store them under the school, in the the class, now this service is only submitted to via API but it’s the one to show the results to the school and the plat form admin and store this data too, now the school  will be able to get metrics on the performance analytics some will be provided by the assessor Ai but this is the viewing board for the school and “Eduqest admin”                             Internet
+                         │
+                         ▼
+                 Next.js Dashboard
+         (Schools + EduQuest Admin)
+                         │
+                HTTPS / REST API
+                         │
+                         ▼
+                  FastAPI Backend
+ ┌─────────────────────────────────────────────┐
+ │ Authentication                              │
+ │ Business Logic                              │
+ │ Upload Service                              │
+ │ AI Job Management                           │
+ │ Analytics API                               │
+ │ Report Generation                           │
+ └──────────────┬──────────────────────────────┘
+                │
+     ┌──────────┴────────────┐
+     │                       │
+     ▼                       ▼
+ PostgreSQL             Redis/BullMQ
+     │                       │
+     │                 Processing Queue
+     │                       │
+     ▼                       ▼
+ Object Storage         AI Workers
+     │
+     ▼
+ ZIPs / PDFs         
+Component	Technology	Why
+Frontend	Next.js	Excellent dashboards, server rendering, React ecosystem
+Backend API	FastAPI	High performance, async, Python ecosystem
+Database	PostgreSQL	Reliability, analytics, scalability
+ORM	SQLAlchemy 2.0 (or SQLModel)	Modern, type-safe, flexible
+Authentication	JWT + Refresh Tokens	Standard, scalable
+Queue	Redis + Dramatiq (or Celery)	Asynchronous processing and retries
+Cache	Redis	Sessions, caching, job status
+Storage	GCS	Scalable file storage
+		
+		
+		
+		
+		

@@ -1,0 +1,213 @@
+@import "tailwindcss";
+
+@theme {
+  /* ─── Primary Burgundy Palette (#660033 tone scale) ─── */
+  --color-primary-50: #fbf2f5;
+  --color-primary-100: #f7e5eb;
+  --color-primary-200: #eed0db;
+  --color-primary-300: #dda2ba;
+  --color-primary-400: #c86d94;
+  --color-primary-500: #b33c70;
+  --color-primary-600: #8f124c;
+  --color-primary-700: #660033; /* Burgundy primary */
+  --color-primary-800: #4d0026;
+  --color-primary-900: #330019;
+
+  /* ─── Legacy colors (keep for existing components) ─── */
+  --color-aubergine: #660033;
+  --color-deep-plum: #4d0026;
+  --color-purple-haze: #fbf2f5;
+  --color-lavender-mist: #eed0db;
+  --color-vivid-violet: #b33c70;
+  --color-plum-shadow: #330019;
+  --color-iris: #660033;
+  --color-iris-light: #c86d94;
+  --color-channel-blue: #3b82f6;
+  --color-mid-blue: #2563eb;
+  --color-sky-mist: #60a5fa;
+
+  /* ─── Neutrals ─── */
+  --color-carbon: #111827;
+  --color-charcoal: #374151;
+  --color-mid-gray: #6b7280;
+  --color-steel: #9ca3af;
+  --color-fog: #e5e7eb;
+  --color-pure-white: #ffffff;
+  --color-soft-white: #f8f9fc;
+  --color-ice-blue: #eff6ff;
+  --color-black: #000000;
+  --color-canvas: #f4f4f8;
+
+  /* ─── Semantic ─── */
+  --color-success: #10b981;
+  --color-success-light: #d1fae5;
+  --color-warning: #f59e0b;
+  --color-warning-light: #fef3c7;
+  --color-danger: #ef4444;
+  --color-danger-light: #fee2e2;
+
+  /* ─── Typography ─── */
+  --font-salesforce-avant-garde: var(--font-dm-sans), ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-salesforce-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system, sans-serif;
+
+  /* Typography — Scale */
+  --text-eyebrow: 12px;
+  --leading-eyebrow: 1.5;
+  --tracking-eyebrow: 0.68px;
+  
+  --text-caption: 14px;
+  --leading-caption: 1.56;
+  --tracking-caption: -0.03px;
+  
+  --text-body-sm: 16px;
+  --leading-body-sm: 1.5;
+  --tracking-body-sm: -0.16px;
+  
+  --text-body: 18px;
+  --leading-body: 1.56;
+  --tracking-body: -0.22px;
+  
+  --text-subheading: 32px;
+  --leading-subheading: 1.25;
+  --tracking-subheading: -0.26px;
+  
+  --text-heading-sm: 50px;
+  --leading-heading-sm: 1;
+  --tracking-heading-sm: -0.6px;
+  
+  --text-heading: 64px;
+  --leading-heading: 1.12;
+  --tracking-heading: -0.77px;
+  
+  --text-heading-lg: 76px;
+  --leading-heading-lg: 1.2;
+  --tracking-heading-lg: -0.91px;
+  
+  --text-display: 96px;
+  --leading-display: 1.08;
+  --tracking-display: -1.15px;
+
+  /* ─── Spacing ─── */
+  --spacing-4: 4px;
+  --spacing-6: 6px;
+  --spacing-7: 7px;
+  --spacing-8: 8px;
+  --spacing-10: 10px;
+  --spacing-12: 12px;
+  --spacing-16: 16px;
+  --spacing-18: 18px;
+  --spacing-19: 19px;
+  --spacing-20: 20px;
+  --spacing-24: 24px;
+  --spacing-32: 32px;
+  --spacing-40: 40px;
+  --spacing-48: 48px;
+  --spacing-96: 96px;
+  --spacing-98: 98px;
+
+  /* ─── Border Radius ─── */
+  --radius-md: 4px;
+  --radius-lg: 8px;
+  --radius-xl: 12px;
+  --radius-2xl: 16px;
+  --radius-full: 48px;
+  --radius-full-2: 60px;
+  --radius-full-3: 90px;
+  --radius-full-4: 999px;
+  --radius-full-5: 9999px;
+
+  /* ─── Shadows ─── */
+  --shadow-card: 0 1px 3px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.06);
+  --shadow-card-hover: 0 10px 25px rgba(102, 0, 51, 0.08), 0 4px 10px rgba(0, 0, 0, 0.04);
+  --shadow-nav: 0 1px 3px rgba(0, 0, 0, 0.06);
+  --shadow-xl: rgba(0, 0, 0, 0.1) 0px 0px 32px 0px;
+  --shadow-subtle: rgb(102, 0, 51) 0px 0px 0px 1px inset;
+  --shadow-subtle-2: rgba(0, 0, 0, 0.08) 0px 1px 3px 0px;
+  --shadow-lg: rgba(0, 0, 0, 0.1) 0px 5px 20px 0px;
+
+  /* ─── Animations ─── */
+  --animate-fade-in: fade-in 0.5s ease-out;
+  --animate-fade-in-up: fade-in-up 0.5s ease-out;
+  --animate-pulse-soft: pulse-soft 2s ease-in-out infinite;
+  --animate-slide-in: slide-in 0.3s ease-out;
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fade-in-up {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse-soft {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+
+@keyframes slide-in {
+  from { opacity: 0; transform: translateX(-8px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@layer base {
+  * {
+    @apply border-fog;
+  }
+  body {
+    @apply bg-canvas text-carbon font-salesforce-sans antialiased;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-salesforce-avant-garde text-carbon tracking-heading-sm font-semibold;
+  }
+}
+
+/* ─── Utility Classes ─── */
+.text-gradient-vivid {
+  background: linear-gradient(135deg, #660033 0%, #b33c70 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.widget-card {
+  @apply bg-pure-white rounded-2xl border border-fog/60 shadow-card transition-all duration-300;
+}
+
+.widget-card:hover {
+  @apply shadow-card-hover;
+  border-color: rgba(102, 0, 51, 0.15);
+}
+
+.widget-card-dark {
+  background: linear-gradient(145deg, #240013 0%, #14000a 100%);
+  @apply rounded-2xl shadow-card transition-all duration-300 border-0;
+}
+
+.widget-card-dark:hover {
+  box-shadow: 0 10px 30px rgba(102, 0, 51, 0.25);
+}
+
+.widget-card-accent {
+  background: linear-gradient(135deg, #fbf2f5 0%, #f7e5eb 100%);
+  @apply rounded-2xl border border-primary-200/50 shadow-card transition-all duration-300;
+}
+
+.widget-card-accent:hover {
+  @apply shadow-card-hover;
+}
+
+.stat-badge {
+  @apply inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-bold tracking-wide;
+}
+
+.attendance-cell {
+  @apply w-[18px] h-[18px] rounded-[4px] transition-all duration-200;
+}
+
+.attendance-cell:hover {
+  transform: scale(1.3);
+}
