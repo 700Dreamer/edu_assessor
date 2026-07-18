@@ -6,7 +6,7 @@ WORKDIR /app/front/ed_front
 RUN corepack enable pnpm
 
 # Install dependencies
-COPY front/ed_front/package.json front/ed_front/pnpm-lock.yaml* ./
+COPY front/ed_front/package.json front/ed_front/pnpm-lock.yaml* front/ed_front/pnpm-workspace.yaml ./
 ENV CI=true
 RUN pnpm install
 
