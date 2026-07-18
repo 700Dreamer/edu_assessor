@@ -60,7 +60,7 @@ export default function NewSchoolPage() {
       
       // Auto login as admin for testing purposes if no token
       if (!token) {
-        const loginResp = await fetch("http://localhost:8000/api/v1/auth/token", {
+        const loginResp = await fetch("/api/v1/auth/token", {
           method: "POST",
           headers: { "Content-Type": "application/x-www-form-urlencoded" },
           body: "username=admin@eduquest.com&password=password123",
@@ -72,7 +72,7 @@ export default function NewSchoolPage() {
         }
       }
 
-      const response = await fetch("http://localhost:8000/api/v1/schools/", {
+      const response = await fetch("/api/v1/schools/", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

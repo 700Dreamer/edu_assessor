@@ -26,7 +26,7 @@ export default function Login() {
       formData.append("password", password);
 
       // We'll mock the backend URL for now. 
-      const res = await axios.post("http://localhost:8000/api/v1/auth/token", formData, {
+      const res = await axios.post("/api/v1/auth/token", formData, {
         headers: { "Content-Type": "application/x-www-form-urlencoded" }
       });
       
