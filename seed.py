@@ -24,6 +24,7 @@ async def seed_admin():
         print("Successfully created admin account!")
         print("Email: admin@eduquest.com")
         print("Password: password123")
+        print("Password: password123")
 
 if __name__ == "__main__":
     asyncio.run(seed_admin())
