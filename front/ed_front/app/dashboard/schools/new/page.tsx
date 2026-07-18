@@ -163,9 +163,9 @@ export default function NewSchoolPage() {
                           />
                           <Button
                             type="button"
-                            variant="destructive"
+                            variant="outline"
                             size="icon"
-                            className="shrink-0 h-10 w-10"
+                            className="shrink-0 h-10 w-10 text-red-500 border-red-200 hover:bg-red-50 hover:text-red-700"
                             onClick={() => handleRemoveStream(levelIndex, streamIndex)}
                           >
                             <Trash className="w-4 h-4" />
