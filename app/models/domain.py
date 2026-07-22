@@ -21,6 +21,12 @@ class Class(Base):
     students = relationship("Student", back_populates="cls")
     exams = relationship("Exam", back_populates="cls")
 
+    @property
+    def class_stream(self) -> str:
+        if self.stream:
+            return f"{self.level} {self.stream}"
+        return self.level
+
 class Student(Base):
     id = Column(String, primary_key=True, default=generate_uuid, index=True)
     name = Column(String, nullable=False)
@@ -31,14 +37,19 @@ class Student(Base):
     cls = relationship("Class", back_populates="students")
     results = relationship("Result", back_populates="student")
 
+class ExamStatus(str, enum.Enum):
+    OPEN = "OPEN"
+    SEALED = "SEALED"
+
 class Exam(Base):
     id = Column(String, primary_key=True, default=generate_uuid, index=True)
-    name = Column(String, nullable=False)
+    name = Column(String, nullable=True)
     class_id = Column(String, ForeignKey("class.id"), nullable=False)
     subject_id = Column(Integer, nullable=True)
     exam_type_id = Column(Integer, nullable=True)
     term = Column(Integer, nullable=True)
     year = Column(Integer, nullable=True)
+    status = Column(Enum(ExamStatus), default=ExamStatus.OPEN, nullable=False)
     
     cls = relationship("Class", back_populates="exams")
     submissions = relationship("Submission", back_populates="exam")
@@ -54,6 +65,7 @@ class Submission(Base):
     id = Column(String, primary_key=True, default=generate_uuid, index=True)
     exam_id = Column(String, ForeignKey("exam.id"), nullable=False)
     file_url = Column(String, nullable=False)
+    file_hash = Column(String, nullable=True, index=True)
     status = Column(Enum(SubmissionStatus), default=SubmissionStatus.PENDING)
     
     exam = relationship("Exam", back_populates="submissions")
